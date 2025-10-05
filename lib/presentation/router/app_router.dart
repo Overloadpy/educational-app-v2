@@ -1,9 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../pages/placeholder_page.dart';
-import '../pages/onboarding/splash_screen.dart';
-import '../pages/onboarding/onboarding_screen.dart';
+import '../pages/onboarding/signup_screen.dart';
+import '../pages/onboarding/login_screen.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
@@ -11,19 +10,23 @@ class AppRouter {
       // Flow 1: First-Time User Experience (Onboarding)
       GoRoute(
         path: '/',
-        builder: (context, state) => const SplashScreen(),
+        builder: (context, state) => const LoginScreen(), // Temporarily changed to LoginScreen for easier testing
       ),
       GoRoute(
-        path: '/onboarding',
-        builder: (context, state) => const OnboardingScreen(),
+        path: '/welcome',
+        builder: (context, state) => const PlaceholderPage(title: 'Welcome Screen'),
+      ),
+      GoRoute(
+        path: '/features',
+        builder: (context, state) => const PlaceholderPage(title: 'Features Showcase'),
       ),
       GoRoute(
         path: '/signup',
-        builder: (context, state) => const PlaceholderPage(title: 'Sign Up Screen'),
+        builder: (context, state) => const SignUpScreen(),
       ),
       GoRoute(
         path: '/login',
-        builder: (context, state) => const PlaceholderPage(title: 'Login Screen'),
+        builder: (context, state) => const LoginScreen(),
       ),
       GoRoute(
         path: '/grade-stream',
