@@ -30,10 +30,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       title: 'Zenith Education App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepPurple,
+        useMaterial3: true,
       ),
       routerConfig: AppRouter.router,
     );
   }
 }
-
