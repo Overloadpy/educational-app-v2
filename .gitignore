@@ -31,12 +31,22 @@
 /build/
 
 # Web related
-lib/generated_plugin_registrant.dart
+/lib/generated_plugin_registrant.dart
 
 # Symbolic links
-packages/
+packages
 
-# VS Code files
+# Temporary files
+*.tmp
+*.temp
+
+# OS generated files
+Thumbs.db
+
+# Firebase
+/firebase-debug.log
+
+# VS Code
 .vscode/settings.json
 .vscode/tasks.json
 .vscode/launch.json
