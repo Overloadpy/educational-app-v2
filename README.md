@@ -149,8 +149,8 @@ Hive is used for local data storage:
 1. **Foundation & Scaffolding** (1-2 Weeks) - COMPLETED
 2. **Entry & Onboarding Flow** (2-3 Weeks) - IN PROGRESS
 3. **Core Learning Experience** (5-6 Weeks)
-4. **Personalization & Engagement Layer** (2-3 Weeks)
-5. **Business Integration & Launch** (3-4 Weeks)
+4.** pending.....**
+5. **pending.....**
 
 ## Getting Started
 
