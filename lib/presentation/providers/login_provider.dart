@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class LoginState {
@@ -54,5 +55,9 @@ class LoginNotifier extends StateNotifier<LoginState> {
       password: password,
       passwordError: password.isEmpty ? 'Password is required' : null,
     );
+  }
+  
+  void setSubmitting(bool isSubmitting) {
+    state = state.copyWith(isSubmitting: isSubmitting);
   }
 }

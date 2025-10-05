@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import '../pages/placeholder_page.dart';
 import '../pages/onboarding/signup_screen.dart';
 import '../pages/onboarding/login_screen.dart';
+import '../pages/onboarding/grade_selection_screen.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
@@ -30,7 +31,7 @@ class AppRouter {
       ),
       GoRoute(
         path: '/grade-stream',
-        builder: (context, state) => const PlaceholderPage(title: 'Grade & Stream Selection'),
+        builder: (context, state) => const GradeSelectionScreen(),
       ),
       GoRoute(
         path: '/permissions',

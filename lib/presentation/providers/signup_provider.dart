@@ -1,4 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../data/models/user_model.dart';
 
 class SignUpState {
   bool get isFormValid {
@@ -107,4 +112,36 @@ class SignUpNotifier extends StateNotifier<SignUpState> {
     return null;
   }
 
+  Future<void> signUp(BuildContext context) async {
+    // Set submitting state
+    state = state.copyWith(isSubmitting: true);
+    
+    // Simulate network call
+    await Future.delayed(const Duration(seconds: 1));
+    
+    // Open the user box
+    final userBox = await Hive.openBox<UserModel>('userBox');
+    
+    // Create a new UserModel instance
+    final user = UserModel(
+      email: state.email,
+      grade: '', // Will be set in grade selection screen
+      stream: null, // Will be set in grade selection screen
+    );
+    
+    // Save this UserModel to the user_box
+    await userBox.put('currentUser', user);
+    
+    if (context.mounted) {
+      // Show success message
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Sign Up Successful! (Demo Mode)'),
+        ),
+      );
+      
+      // Navigate to the grade-stream route
+      context.go('/grade-stream');
+    }
+  }
 }

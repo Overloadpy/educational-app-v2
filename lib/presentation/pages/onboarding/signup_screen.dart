@@ -57,7 +57,7 @@ class SignUpScreen extends ConsumerWidget {
             const SizedBox(height: 24),
             ElevatedButton(
               onPressed: state.isFormValid && !state.isSubmitting
-                  ? () => _handleSignUp(context, ref)
+                  ? () => notifier.signUp(context)
                   : null,
               child: state.isSubmitting
                   ? const SizedBox(
@@ -79,27 +79,5 @@ class SignUpScreen extends ConsumerWidget {
         ),
       ),
     );
-  }
-
-  Future<void> _handleSignUp(BuildContext context, WidgetRef ref) async {
-    final notifier = ref.read(signUpProvider.notifier);
-    
-    // Set submitting state
-    notifier.state = notifier.state.copyWith(isSubmitting: true);
-    
-    // Simulate network call
-    await Future.delayed(const Duration(seconds: 1));
-    
-    if (context.mounted) {
-      // Show success message
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Sign Up Successful! (Demo Mode)'),
-        ),
-      );
-      
-      // Navigate to grade selection
-      context.go('/grade-stream');
-    }
   }
 }

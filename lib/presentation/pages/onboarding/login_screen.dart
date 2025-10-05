@@ -75,7 +75,7 @@ class LoginScreen extends ConsumerWidget {
     final notifier = ref.read(loginProvider.notifier);
     
     // Set submitting state
-    notifier.state = notifier.state.copyWith(isSubmitting: true);
+    notifier.setSubmitting(true);
     
     // Simulate network call
     await Future.delayed(const Duration(seconds: 1));
